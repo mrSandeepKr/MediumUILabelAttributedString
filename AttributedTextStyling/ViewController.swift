@@ -25,7 +25,28 @@ class ViewController: UIViewController {
     }
     
     private func setUpLabel() {
-        //Add Code Snippet to Set Up UILabel.
+        // create a string
+        let labelText = "Hello World!"
+        // converting the string to attributed text
+        let attributedText = NSMutableAttributedString(string: labelText)
+        
+        // MARK: FONT SIZE
+        let textFontSize:CGFloat = 40
+        let fontSizeAttribute = [NSAttributedString.Key.font:  UIFont.systemFont(ofSize: textFontSize)]
+        attributedText.addAttributes(fontSizeAttribute, range: NSRange(location: 0, length: labelText.count))
+        
+        
+        // MARK: BOLD
+        let boldAttribute = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: textFontSize)]
+        
+        // Getting the range for Hello
+        // Need to case the string to NSString in order to get NSRange
+        let rangeToBold = (labelText as NSString).range(of: "Hello")
+        
+        // Adding attributs to the range
+        attributedText.addAttributes(boldAttribute, range: rangeToBold)
+        
+        label.attributedText = attributedText
     }
 }
 
