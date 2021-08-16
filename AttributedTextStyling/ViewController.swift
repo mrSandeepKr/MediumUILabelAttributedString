@@ -46,6 +46,17 @@ class ViewController: UIViewController {
         // Adding attributs to the range
         attributedText.addAttributes(boldAttribute, range: rangeToBold)
         
+        // MARK: KERN (Text Spacing)
+        
+        // Getting the range for the word World
+        let rangeToChangeSpacing = (labelText as NSString).range(of: "World")
+        
+        // setting the Kern Attribute to 4
+        let kerningAttribute = [NSAttributedString.Key.kern : 4]
+        
+        // Adding kern attributs to the range
+        attributedText.addAttributes(kerningAttribute, range: rangeToChangeSpacing)
+        
         label.attributedText = attributedText
     }
 }
