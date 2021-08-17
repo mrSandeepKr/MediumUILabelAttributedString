@@ -79,6 +79,18 @@ class ViewController: UIViewController {
         // Appending Image Attachment to string
         attributedText.append(textAttachmentAttriText)
         
+        // MARK: Background and Foreground Coloring
+        
+        // Getting the range for Coloring Text
+        let rangeToColor = (labelText as NSString).range(of: "o Worl")
+        
+        // Setting the foreground color to Red
+        // and background Color to grey
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.red,
+                              NSAttributedString.Key.backgroundColor: UIColor.lightGray]
+        
+        attributedText.addAttributes(textAttributes, range: rangeToColor)
+        
         label.attributedText = attributedText
     }
 }
