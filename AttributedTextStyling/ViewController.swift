@@ -57,6 +57,28 @@ class ViewController: UIViewController {
         // Adding kern attributs to the range
         attributedText.addAttributes(kerningAttribute, range: rangeToChangeSpacing)
         
+        // MARK: IMAGE ATTACHMENT
+        
+        // Choose a image to attach to the UILabel
+        let image = UIImage.init(systemName: "square.and.pencil")!
+        
+        // Building a NSTextAttachment from the chosen  image
+        let textAttachment = NSTextAttachment(image: image)
+        
+        // Giving the textAttachment a desired Size
+        // Here we shall be keeping it's dimensions same as font size
+        textAttachment.bounds = CGRect(x: 0,
+                                       y: 0,
+                                       width: textFontSize,
+                                       height: textFontSize)
+        
+        // Converting the textAttachment to an AttributedString
+        let textAttachmentAttriText = NSAttributedString(attachment: textAttachment)
+        
+        attributedText.append(NSAttributedString(string: "  "))
+        // Appending Image Attachment to string
+        attributedText.append(textAttachmentAttriText)
+        
         label.attributedText = attributedText
     }
 }
